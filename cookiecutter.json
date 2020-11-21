@@ -4,7 +4,7 @@
     "tool_icon": "tool",
     "tool_description": "Tool Description",
     "tool_class": "MyTool",
-    "tool_tags": "['tpDcc', 'dcc', 'tool']"
+    "tool_tags": "['tpDcc', 'dcc', 'tool']",
     "author": "Tomas Poveda",
     "email": "tpovedatd@gmail.com",
     "year": "{% now 'utc', '%Y' %}",
