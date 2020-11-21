@@ -7,11 +7,6 @@
 
 from __future__ import print_function, division, absolute_import
 
-import os
-import logging
-import importlib
-
-from tpDcc import dcc
 from tpDcc.core import tool
 from tpDcc.libs.qt.widgets import toolset
 
