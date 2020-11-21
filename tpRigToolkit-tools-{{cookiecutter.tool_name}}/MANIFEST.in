@@ -1,0 +1,4 @@
+include tpRigToolkit/tools/{{cookiecutter.tool_name}}/__logging__.ini
+recursive-include tpRigToolkit/tools/{{cookiecutter.tool_name}}/resources/* *.*
+include versioneer.py
+include tpRigToolkit/tools/{{cookiecutter.tool_name}}/_version.py
