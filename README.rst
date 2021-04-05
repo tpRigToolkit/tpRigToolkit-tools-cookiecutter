@@ -68,4 +68,4 @@ How to use (Automatic Configuration)
 
         .. code-block::
 
-            "C:\Python27\Scripts\cookiecutter https://github.com/tpRigToolkit/tpRigToolkit-tools-cookiecutter.git --config-file "D:\tpRigToolkit\cookiecutter.yaml" --no-input
+            "C:\Python27\Scripts\cookiecutter.exe" https://github.com/tpRigToolkit/tpRigToolkit-tools-cookiecutter.git --config-file "D:\tpRigToolkit\cookiecutter.yaml" --no-input
