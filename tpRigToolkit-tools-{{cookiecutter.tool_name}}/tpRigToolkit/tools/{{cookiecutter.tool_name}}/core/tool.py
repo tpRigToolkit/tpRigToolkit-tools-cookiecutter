@@ -7,13 +7,20 @@
 
 from __future__ import print_function, division, absolute_import
 
-from tpDcc.core import tool
-from tpDcc.libs.qt.widgets import toolset
+import os
+import sys
 
-from tpRigToolkit.tools.{{cookiecutter.tool_name}}.core import consts
+from tpDcc.core import tool
+
+from tpRigToolkit.tools.{{cookiecutter.tool_name}}.core import consts, toolset, client
 
 
 class {{cookiecutter.tool_class}}Tool(tool.DccTool, object):
+
+    ID = consts.TOOL_ID
+    TOOLSET_CLASS = toolset.{{cookiecutter.tool_class}}Toolset
+    CLIENT_CLASS = client.{{cookiecutter.tool_class}}Client
+
     def __init__(self, *args, **kwargs):
         super({{cookiecutter.tool_class}}Tool, self).__init__(*args, **kwargs)
 
@@ -22,7 +29,7 @@ class {{cookiecutter.tool_class}}Tool(tool.DccTool, object):
         base_tool_config = tool.DccTool.config_dict(file_name=file_name)
         tool_config = {
             'name': '{{cookiecutter.tool_nice_name}}',
-            'id': TOOL_ID,
+            'id': cls.TOOL_ID,
             'supported_dccs': {{cookiecutter.supported_dccs}},
             'icon': '{{cookiecutter.tool_icon}}',
             'tooltip': '{{cookiecutter.tool_description}}',
@@ -39,11 +46,14 @@ class {{cookiecutter.tool_class}}Tool(tool.DccTool, object):
         return self.launch_frameless(*args, **kwargs)
 
 
-class {{cookiecutter.tool_class}}Toolset(toolset.ToolsetWidget, object):
-    ID = TOOL_ID
+if __name__ == '__main__':
+    import tpRigToolkit.loader
+    from tpDcc.managers import tools
 
-    def __init__(self, *args, **kwargs):
-        super({{cookiecutter.tool_class}}Toolset, self).__init__(*args, **kwargs)
+    tool_path = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+    if tool_path not in sys.path:
+        sys.path.append(tool_path)
 
-    def contents(self):
-        return []
+    tpRigToolkit.loader.init()
+
+    tools.ToolsManager().launch_tool_by_id(consts.TOOL_ID)

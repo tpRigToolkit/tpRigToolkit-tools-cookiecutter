@@ -9,5 +9,6 @@
     "email": "tpovedatd@gmail.com",
     "year": "{% now 'utc', '%Y' %}",
     "version": "0.0.1",
-    "supported_dccs": "{'maya': ['2017', '2018', '2019', '2020']}"
+    "supported_dccs": "{'maya': ['2017', '2018', '2019', '2020']}",
+    "client_port": 12345
 }
