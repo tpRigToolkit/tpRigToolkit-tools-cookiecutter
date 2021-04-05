@@ -29,7 +29,7 @@ class {{cookiecutter.tool_class}}Tool(tool.DccTool, object):
         base_tool_config = tool.DccTool.config_dict(file_name=file_name)
         tool_config = {
             'name': '{{cookiecutter.tool_nice_name}}',
-            'id': cls.TOOL_ID,
+            'id': cls.ID,
             'supported_dccs': {{cookiecutter.supported_dccs}},
             'icon': '{{cookiecutter.tool_icon}}',
             'tooltip': '{{cookiecutter.tool_description}}',
